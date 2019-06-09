@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TaskCard from './TaskCard'
 // import IncompleteTask from './IncompleteTask'
-import { Card, Button, Icon } from 'semantic-ui-react'
+// import { Card, Button, Icon } from 'semantic-ui-react'
 
 
 export default class TasksContainer extends Component {

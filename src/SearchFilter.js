@@ -13,16 +13,16 @@ export default class SearchFilter extends Component {
         // console.log(this.state.search)
         return (
             <div className="ui container" id="search">
-                <div class="ui icon input">
+                <div className="ui icon input">
                     <input
                     onChange = {this.handleOnChange}
                     name="search"
                     type="text"
                     tabindex="0"
-                    class="prompt"
+                    className="prompt"
                     autocomplete="off"
                     placeholder="Search"
-                    /><i aria-hidden="true" class="search icon"></i>
+                    /><i aria-hidden="true" className="search icon"></i>
                 </div>
             </div>
         )

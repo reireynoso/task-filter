@@ -3,11 +3,14 @@ import data from './data'
 import './App.css';
 import TasksContainer from './TasksContainer'
 import SearchFilter from './SearchFilter'
+import AddTask from './AddTask';
 
 export default class App extends Component {
   state = {
     tasks: data,
-    searchTerm: ''
+    idTracker: data.length,
+    searchTerm: '',
+    addItem: false
   }
 
   handleSearch = (search) => {
@@ -45,12 +48,30 @@ export default class App extends Component {
     this.setState({
       tasks: newTasks
     })
+  }
+  handleAddClick = () => {
+    this.setState({
+      addItem: !this.state.addItem
+    })
+  }
 
+  handleAddTask = (newTask) => {
+    // console.log(newTask)
+    this.setState({
+      tasks: [newTask, ...this.state.tasks],
+      idTracker: this.state.idTracker + 1,
+    })
+
+    // console.log(this.state.idTracker)
   }
   render() {
     return (
       <div>
         <SearchFilter handleSearch={this.handleSearch}/>
+        <button className="ui button"onClick={this.handleAddClick}>Add Task</button>
+        {
+          this.state.addItem ? <AddTask handleAddTask={this.handleAddTask} handleAddClick={this.handleAddClick} currentId={this.state.idTracker}/> : <p></p>
+        }
         <TasksContainer updateTask={this.updateTask} searchTerm = {this.state.searchTerm} changeTask={this.changeTask} tasks ={this.state.tasks}/>
       </div>
     )

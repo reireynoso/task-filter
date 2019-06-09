@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Form,TextArea, Button} from 'semantic-ui-react'
 
-
-export default class EditForm extends Component {
-
+export default class AddTask extends Component {
     state = {
-        content: this.props.content
+        content: '',
+        completed: false,
+        id: this.props.currentId + 1
     }
 
     handleChange = (e) => {
@@ -14,25 +14,25 @@ export default class EditForm extends Component {
         })
     }
 
-    submitEvent = () => {
-        
-        this.props.updateTask(this.props.id, this.state.content)
-        this.props.handleEditClick()
+    handleSubmit = () => {
+        this.props.handleAddTask(this.state)
     }
+
     render() {
+        console.log(this.state.id)
         return (
-            <div>
-                <Form onSubmit={this.submitEvent}>
+            <div className="ui container">
+                <Form onSubmit={this.handleSubmit}>
                     <Form.Field
                         control={TextArea}
-                        placeholder='Start writing here...'
+                        placeholder='Content Here..'
                         value={this.state.content}
                         onChange={this.handleChange}
                         name="content"
                     />
                     <Button.Group>
                         <Button color="green">Submit</Button>
-                        <Button onClick={this.props.handleEditClick}>Cancel</Button>
+                        <Button onClick={this.props.handleAddClick}>Cancel</Button>
                     </Button.Group>
                 </Form>
             </div>
