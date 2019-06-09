@@ -1,0 +1,79 @@
+const tasks = [
+    {
+      "content": "SWBAT Begin using the React Dev Tools something was missing!",
+      "completed": true,
+      "id": 1
+    },
+    {
+      "content": "SWBAT Write cleaner React code",
+      "completed": true,
+      "id": 2
+    },
+    {
+      "content": "Code Organization/file structure (Containers vs Components)",
+      "completed": true,
+      "id": 3
+    },
+    {
+      "content": "Presentational vs Container components",
+      "completed": true,
+      "id": 4
+    },
+    {
+      "content": "Implicit return for Functional components",
+      "completed": true,
+      "id": 5
+    },
+    {
+      "content": "Fragments",
+      "completed": true,
+      "id": 6
+    },
+    {
+      "content": "Callbacks (avoid useless wrapping)",
+      "completed": true,
+      "id": 7
+    },
+    {
+      "content": "Syntax Trick: Arrow functions returning objects",
+      "completed": true,
+      "id": 8
+    },
+    {
+      "content": "Syntax Trick: Destructuring",
+      "completed": true,
+      "id": 9
+    },
+    {
+      "content": "Syntax Trick: Spread Part 1 - Prepending and appending",
+      "completed": true,
+      "id": 10
+    },
+    {
+      "content": "Syntax Trick: Spread Part 2 - Objects with the same key/value name",
+      "completed": true,
+      "id": 11
+    },
+    {
+      "content": "constructor() vs. ES7 instance variables",
+      "completed": true,
+      "id": 12
+    },
+    {
+      "content": ".map() as a way to update objects in an array of objects",
+      "completed": true,
+      "id": 13
+    },
+    {
+      "content": "{ [variable]: \"as_key\" }",
+      "completed": true,
+      "id": 14
+    },
+    {
+      "content": "dddddddddddfdfdsdd",
+      "completed": false,
+      "id": 15
+    }
+  ]
+
+  export default tasks

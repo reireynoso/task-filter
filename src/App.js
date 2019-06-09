@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import data from './data'
 import './App.css';
+import TasksContainer from './TasksContainer'
+import SearchFilter from './SearchFilter'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  state = {
+    tasks: data,
+    searchTerm: ''
+  }
+
+  handleSearch = (search) => {
+    this.setState({
+      searchTerm: search
+    })
+  }
+
+  changeTask = (id) => {
+    // console.log(id)
+    let newTasks = this.state.tasks.map(task => {
+      if(task.id === id){
+        task.completed = !task.completed
+        return task
+      }
+      else return task
+    })
+    this.setState({
+      tasks: newTasks
+    })
+
+  }
+  render() {
+    return (
+      <div>
+        <SearchFilter handleSearch={this.handleSearch}/>
+        <TasksContainer searchTerm = {this.state.searchTerm} changeTask={this.changeTask} tasks ={this.state.tasks}/>
+      </div>
+    )
+  }
 }
 
-export default App;
