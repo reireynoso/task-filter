@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import TaskCard from './TaskCard'
-import IncompleteTask from './IncompleteTask'
+// import IncompleteTask from './IncompleteTask'
+import { Card, Button, Icon } from 'semantic-ui-react'
+
 
 export default class TasksContainer extends Component {
     
@@ -14,22 +16,40 @@ export default class TasksContainer extends Component {
             .includes(this.props.searchTerm.toLowerCase())
           )
     }
+
+    completeTasks = (tasks) => {
+        return this.format(tasks.filter(task =>
+            task.completed
+          ))
+    } 
+
+    inCompleteTasks = (tasks) => {
+        return this.format(tasks.filter(task =>
+            task.completed === false
+          )) 
+    } 
     render() {
-        console.log(this.props.searchTerm)
+        // console.log(this.props.searchTerm)
         return (
             <div className="ui container" id="taskContainer">
+                <div>
+                <h1>Completed</h1>
                 {
-                    this.format(this.props.tasks).map(task => {
-
-                        return <TaskCard changeTask={this.props.changeTask} task={task}/>
-                        // if (task.completed){
-                        //     return <TaskCard task={task}/>
-                        // }
-                        // else{
-                        //     return <IncompleteTask task={task}/>
-                        // }
+                    this.completeTasks(this.props.tasks).map(task => {
+                        return <TaskCard updateTask={this.props.updateTask} changeTask={this.props.changeTask} task={task}/>
                     })
                 }
+                </div>
+
+                <div>
+                <h1>Incomplete</h1>
+                {
+                    this.inCompleteTasks(this.props.tasks).map(task => {
+                        return <TaskCard updateTask={this.props.updateTask} changeTask={this.props.changeTask} task={task}/>
+                    })
+                }
+                </div>
+
             </div>
         )
     }

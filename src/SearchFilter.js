@@ -10,7 +10,7 @@ export default class SearchFilter extends Component {
         this.props.handleSearch(e.target.value)
     }
     render() {
-        console.log(this.state.search)
+        // console.log(this.state.search)
         return (
             <div className="ui container" id="search">
                 <div class="ui icon input">

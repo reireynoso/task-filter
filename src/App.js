@@ -16,6 +16,23 @@ export default class App extends Component {
     })
   }
 
+  updateTask = (id, content) => {
+    // console.log(id)
+    // console.log(content)
+    let updatedStuff = this.state.tasks.map(task => {
+      if(task.id === id){
+        task.content = content
+        return task
+      }
+      else{
+        return task
+      }
+    })
+    this.setState({
+      tasks: updatedStuff
+    })
+  }
+
   changeTask = (id) => {
     // console.log(id)
     let newTasks = this.state.tasks.map(task => {
@@ -34,7 +51,7 @@ export default class App extends Component {
     return (
       <div>
         <SearchFilter handleSearch={this.handleSearch}/>
-        <TasksContainer searchTerm = {this.state.searchTerm} changeTask={this.changeTask} tasks ={this.state.tasks}/>
+        <TasksContainer updateTask={this.updateTask} searchTerm = {this.state.searchTerm} changeTask={this.changeTask} tasks ={this.state.tasks}/>
       </div>
     )
   }
