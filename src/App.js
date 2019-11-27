@@ -37,7 +37,6 @@ export default class App extends Component {
   }
 
   changeTask = (id) => {
-    // console.log(id)
     let newTasks = this.state.tasks.map(task => {
       if(task.id === id){
         task.completed = !task.completed
