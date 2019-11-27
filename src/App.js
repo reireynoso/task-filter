@@ -64,6 +64,15 @@ export default class App extends Component {
 
     // console.log(this.state.idTracker)
   }
+
+  handleDelete = (id) => {
+    console.log(id)
+    let removed = this.state.tasks.filter(task => task.id !== id)
+    this.setState({
+      tasks: removed
+    })
+  }
+  
   render() {
     return (
       <div>
@@ -72,7 +81,7 @@ export default class App extends Component {
         {
           this.state.addItem ? <AddTask handleAddTask={this.handleAddTask} handleAddClick={this.handleAddClick} currentId={this.state.idTracker}/> : <p></p>
         }
-        <TasksContainer updateTask={this.updateTask} searchTerm = {this.state.searchTerm} changeTask={this.changeTask} tasks ={this.state.tasks}/>
+        <TasksContainer handleDelete={this.handleDelete} updateTask={this.updateTask} searchTerm = {this.state.searchTerm} changeTask={this.changeTask} tasks ={this.state.tasks}/>
       </div>
     )
   }

@@ -15,11 +15,13 @@ export default class AddTask extends Component {
     }
 
     handleSubmit = () => {
+        
         this.props.handleAddTask(this.state)
+        this.props.handleAddClick()
     }
 
     render() {
-        console.log(this.state.id)
+        // console.log(this.state.id)
         return (
             <div className="ui container">
                 <Form onSubmit={this.handleSubmit}>

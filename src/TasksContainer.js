@@ -34,20 +34,20 @@ export default class TasksContainer extends Component {
             <div className="ui container" id="taskContainer">
                 <div>
                 <h1>Completed</h1>
-                {
-                    this.completeTasks(this.props.tasks).map(task => {
-                        return <TaskCard updateTask={this.props.updateTask} changeTask={this.props.changeTask} task={task}/>
-                    })
-                }
+                    {
+                        this.completeTasks(this.props.tasks).map(task => {
+                            return <TaskCard handleDelete={this.props.handleDelete} updateTask={this.props.updateTask} changeTask={this.props.changeTask} task={task}/>
+                        })
+                    }
                 </div>
 
                 <div>
                 <h1>Incomplete</h1>
-                {
-                    this.inCompleteTasks(this.props.tasks).map(task => {
-                        return <TaskCard updateTask={this.props.updateTask} changeTask={this.props.changeTask} task={task}/>
-                    })
-                }
+                    {
+                        this.inCompleteTasks(this.props.tasks).map(task => {
+                            return <TaskCard handleDelete={this.props.handleDelete} updateTask={this.props.updateTask} changeTask={this.props.changeTask} task={task}/>
+                        })
+                    }
                 </div>
 
             </div>

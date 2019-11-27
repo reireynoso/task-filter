@@ -23,6 +23,7 @@ export default class TaskCard extends Component {
                     <p>{content}</p>
                     {completed ? <button onClick={() => {this.props.changeTask(id)}} className="ui blue button">Mark Incomplete</button> : <button onClick={() => {this.props.changeTask(id)}} className="ui teal button">Mark Complete</button> }
                     <button className="ui green button" onClick={this.handleEditClick}>Edit</button>
+                    <button className="ui red button" onClick={() => {this.props.handleDelete(id)}}>Delete</button>
                 </Fragment>
                 :
                 <EditForm updateTask={this.props.updateTask} content={content} id={id} handleEditClick={this.handleEditClick}/>
